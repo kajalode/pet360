@@ -14,7 +14,7 @@ app.enableCors({
 origin: [
 'http://localhost:3000',
 'http://localhost:5173',
-'https://pet360-2eoy.onrender.com'
+'https://pet360-2f6i.onrender.com'
 ],
 credentials: true,
 });
