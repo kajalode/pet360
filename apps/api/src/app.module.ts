@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+
 import { PrismaModule } from './modules/prisma/prisma.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
@@ -25,8 +26,11 @@ import { MarketplaceModule } from './modules/marketplace/marketplace.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: process.env.NODE_ENV === 'production' ? '.env' : '.env.local',
+
+      // usa .env no desenvolvimento e variáveis do Render em produção
+      ignoreEnvFile: process.env.NODE_ENV === 'production',
     }),
+
     PrismaModule,
     AuthModule,
     UsersModule,
